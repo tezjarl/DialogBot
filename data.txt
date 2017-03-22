@@ -1,0 +1,25 @@
+bit.ly/devconschgroup
+
+Èäåíòèôèêàòîð ïðèëîæåíèÿ
+a397a146-2164-4c32-94dd-c4d4f7e8aa6e
+ïàðîëü J4bTck8adSEeF6AMRFapjns
+
+Done! Congratulations on your new bot. You will find it at telegram.me/DevConSchoolBot. You can now add a description, about section and profile picture for your bot, see /help for a list of commands. By the way, when you've finished creating your cool bot, ping our Bot Support if you want a better username for it. Just make sure the bot is fully operational before you do this.
+
+Use this token to access the HTTP API:
+285725873:AAEGqlHbbmB9Ajhu0rCOsTSPufaMHfIS9fg
+
+For a description of the Bot API, see this page: https://core.telegram.org/bots/api
+
+{[
+  "(TOP (FRAG (`` ``) (INTJ (UH Well)) (, ,) (NNP Prince) (, ,) (SBAR (IN so) (S (NP (NNP Genoa) (CC and) (NNP Lucca)) (VP (VBP are) (ADVP (RB now)) (ADVP (RB just)) (NP (NP (NN family) (NNS estates)) (PP (IN of) (DT the))))))))",
+  "(TOP (FRAG (NNP Buonapartes) (. .)))",
+  "(TOP (S (CC But) (NP (PRP I)) (VP (VBP warn) (NP (PRP you)) (, ,) (SBAR (IN if) (S (NP (PRP you)) (VP (VBP do) (RB n't) (VP (VB tell) (NP (PRP me)) (SBAR (IN that) (S (NP (DT this)) (VP (VBZ means) (NP (NN war)))))))))) (, ,)))",
+  "(TOP (SBAR (IN if) (S (NP (PRP you)) (ADVP (RB still)) (VP (VBP try) (S (VP (TO to) (VP (VB defend) (NP (NP (DT the) (NNS infamies) (CC and) (NNS horrors)) (VP (VBN perpetrated) (PP (IN by) (DT that)))))))))))",
+  "(TOP (S (NP (NNP Antichrist—I)) (ADVP (RB really)) (VP (VBP believe) (SBAR (S (NP (PRP he)) (VP (VBZ is) (ADJP (JJ Antichrist—I) (VP (MD will) (VP (VB have) (NP (NN nothing) (JJR more)) (TO to))))))))))",
+  "(VP (VBP do) (UCP (PP (IN with) (NP (PRP you))) (CC and) (S (NP (PRP you)) (VP (VBP are) (ADVP (RB no) (RB longer)) (NP (PRP$ my) (NN friend)))) (, ,) (ADVP (RB no) (RB longer)) (NP (PRP$ my) (`` `) (NN faithful))))",
+  "(TOP (S (NP (NN slave)) (, ,) ('' ') (SBAR (IN as) (S (NP (PRP you)) (VP (VBP call) (PRP yourself)))) (. !)))",
+  "(TOP (SBARQ (CC But) (WHADVP (WRB how)) (SQ (VBP do) (NP (PRP you)) (VP (VB do))) (. ?)))",
+  "(TOP (S (NP (PRP I)) (VP (VBP see) (SBAR (S (NP (PRP I)) (VP (VBP have) (VBN frightened)))))))",
+  "(TOP (S (S (NP (NNP you—sit)) (RB down)) (CC and) (S (VP (VB tell) (NP (PRP me)) (NP (PDT all) (DT the) (NN news)))) (. .) ('' '')))"
+]}
