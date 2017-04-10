@@ -44,7 +44,7 @@ namespace DialogBot.CalendarScheduler
 
         static CalendarClient()
         {
-            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+          /*  CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
             // Retrieve a reference to the table.
             CloudTable table = tableClient.GetTableReference("events");
@@ -55,7 +55,7 @@ namespace DialogBot.CalendarScheduler
             foreach (var element in table.ExecuteQuery(query))
             {
                 
-            }
+            }*/
         }
     }
    

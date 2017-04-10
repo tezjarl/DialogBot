@@ -2,11 +2,17 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Threading.Tasks;
 using Microsoft.Bot.Connector;
 using System.Text.RegularExpressions;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Auth.OAuth2.Flows;
+using Google.Apis.Auth.OAuth2.Responses;
+using Google.Apis.Calendar.v3;
+using Google.Apis.Util.Store;
 
 namespace DialogBot.CalendarScheduler
 {
@@ -14,6 +20,7 @@ namespace DialogBot.CalendarScheduler
     public class Scheduler : IDialog<EventDate>
     {
         EventDate date;
+        
         public async Task StartAsync(IDialogContext context)
         {
             if (date == null) date = new EventDate();
@@ -24,15 +31,15 @@ namespace DialogBot.CalendarScheduler
         private async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
         {
             var message = await result;
-            var repl =await Reply(message.Text);
+            var repl =await Reply(message.Text, context);
             await context.PostAsync(repl);
             context.Wait(MessageReceivedAsync);
         }
 
-        private async Task<string> Reply(string text)
+        private async Task<string> Reply(string text, IDialogContext context)
         {
-            
-            if (text.Contains("help"))
+               
+           if (text.Contains("help"))
             {
                 return @"This is a simple event bot.
 Example of commands include:
@@ -50,7 +57,26 @@ Your date input must be in format dd.mm.yyyy";
                     "I am an event bot. If you want to know about any of your events at the specific date, you can ask me about it";
             if (text.Contains("develop") || text.Contains("create") || text.Contains("invent"))
                 return "I was developed by Alex Popovkin and Alex Chertov";
-            if (text.Contains("event") && text.Contains("today"))
+            if (text.Contains("authorize"))
+            {
+               
+                using (var client = new GoogleCalendarClient())
+                {
+                    return await client.Authorize();
+                }
+            }
+            if (text.Contains("check"))
+            {
+                using (var client = new GoogleCalendarClient())
+                {
+                    return await client.GetEvents(new DateTime(2016,1,1));
+                }
+              
+
+
+            }
+            return string.Empty;
+            /*if (text.Contains("event") && text.Contains("today"))
                 return await date.BuildResult(Dates.Today);
             if (text.Contains("event") && text.Contains("tomorrow"))
                 return await date.BuildResult(Dates.Tomorrow);
@@ -66,7 +92,7 @@ Your date input must be in format dd.mm.yyyy";
                 else date.date = input;
             } 
             
-            return await date.BuildResult();
+            return await date.BuildResult();*/
         }
     }
 }

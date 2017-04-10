@@ -3,6 +3,7 @@ using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Formatting;
 using System.Web.Http;
 
 namespace DialogBot
@@ -17,11 +18,12 @@ namespace DialogBot
             config.Formatters.JsonFormatter.SerializerSettings.Formatting = Formatting.Indented;
             JsonConvert.DefaultSettings = () => new JsonSerializerSettings()
             {
-                ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                ContractResolver = new JsonContractResolver(new JsonMediaTypeFormatter()),
                 Formatting = Newtonsoft.Json.Formatting.Indented,
-                NullValueHandling = NullValueHandling.Ignore,
+                NullValueHandling = NullValueHandling.Include,
+                TypeNameHandling = TypeNameHandling.Auto
             };
-
+            
             // Web API configuration and services
 
             // Web API routes
@@ -33,5 +35,6 @@ namespace DialogBot
                 defaults: new { id = RouteParameter.Optional }
             );
         }
+      
     }
 }
