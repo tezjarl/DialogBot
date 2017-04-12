@@ -170,7 +170,8 @@
     <Compile Include="CalendarScheduler\CalendarClient.cs" />
     <Compile Include="CalendarScheduler\EventDate.cs" />
     <Compile Include="CalendarScheduler\GoogleCalendarClient.cs" />
-    <Compile Include="CalendarScheduler\LuisClient.cs" />
+    <Compile Include="CalendarScheduler\CalendarDialog.cs" />
+    <Compile Include="CalendarScheduler\LuisResponse.cs" />
     <Compile Include="CalendarScheduler\Scheduler.cs" />
     <Compile Include="CalendarScheduler\SimpleGoogleCredential.cs" />
     <Compile Include="Config.cs" />

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Microsoft.Bot.Connector;
@@ -22,16 +23,17 @@ namespace DialogBot
         {
             try
             {
+
                 if (activity.Type == ActivityTypes.Message)
                 {
-                    await Conversation.SendAsync(activity, () => new CalendarScheduler.Scheduler());
+                  await Conversation.SendAsync(activity, () => new CalendarScheduler.Scheduler());
                 }
                 else
                 {
                     HandleSystemMessage(activity);
                 }
-                var response = Request.CreateResponse(HttpStatusCode.OK);
-                return response;
+                return new HttpResponseMessage(HttpStatusCode.Accepted);
+             
             }
             catch (Exception e)
             {

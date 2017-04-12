@@ -48,11 +48,23 @@ namespace DialogBot.CalendarScheduler
             EventsResource.ListRequest request = service.Events.List("primary");
             Events events = await request.ExecuteAsync();
             StringBuilder sb =new StringBuilder();
-            foreach (var calendarEvents in events.Items)
+            foreach (var calendarEvent in events.Items)
             {
-                sb.AppendLine(calendarEvents.Id);
+                sb.AppendLine($"{calendarEvent.Summary} starting at {calendarEvent.Start.DateTime} and ending at {calendarEvent.End.DateTime}");
             }
             return sb.ToString();
+        }
+
+        public async Task<string> SetUpEvent(DateTime eventDate, string title)
+        {
+            var service = new CalendarService(new BaseClientService.Initializer()
+            {
+                HttpClientInitializer = User,
+                ApplicationName = "BotApp"
+            });
+            EventsResource.InsertRequest request = service.Events.Insert(new Event{Start = new EventDateTime{DateTime = eventDate, TimeZone = TimeZone.CurrentTimeZone.ToString()}, Summary = title}, "primary");
+            Event createdEvent = await request.ExecuteAsync();
+            return createdEvent != null ? "event created" : "something goes wrong";
         }
 
         public void Dispose()
